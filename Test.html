@@ -18,27 +18,34 @@
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h3 style="text-align: center;">Bubs and Grubs</h3>
-            <h4 class="display-4"> Tired of the same old meals and drinks during quarantine?
+            <h5 class="display-4" style="text-align: center;"> Tired of the same old meals and drinks during quarantine?
                 Try our our random meal and drink recipe generator to mix it up!
-            </h4>
+            </h5>
         </div>
     </div>
+
+    <br>
+
     <!-- Form -->
-    <div class="container">
-        <h4>Food Options</h4>
+    <div class="container" style="text-align: center;">
+        <h5>Click one of the buttons below to generate a random meal or drink recipe!</h5>
 
-        <button type="button" class="btn btn-primary">Drinks</button>
         <button type="button" class="btn btn-secondary" id="meal-bttn">Meals</button>
-
+        <button type="button" class="btn btn-primary">Drink</button>
 
     </div>
 
     <br>
 
     <div class="container">
-        <div id="meal-view"></div>
-
-
+        <div class="row">
+            <div class="col s12 m6">
+                <div id="meal-view"></div>
+            </div>
+        </div>
+        <div class="col s12 m6">
+            <div id="beverage-view"></div>
+        </div>
     </div>
 
 

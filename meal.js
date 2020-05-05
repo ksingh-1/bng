@@ -1,10 +1,7 @@
-
-
 // JS for Displaying Random Meal
 function displayRandomMeal() {
 
     var queryURL = "https://www.themealdb.com/api/json/v1/1/random.php";
-
 
     // Creates AJAX call for the specific movie button being clicked
     $.ajax({
@@ -33,7 +30,9 @@ function displayRandomMeal() {
         var recipeImageDisplay = $('<img class="imageSize">').attr("src", recipeImage);
         var recipeIngredientText = $("<p>").text("Ingredients : " + recipeIngredient1 + " : " + recipeMeasure1)
         var recipeInstructionText = $("<p>").text("Instructions : " + reciepInstructions)
-        var recipeYoutubeLink = $("<p>").text("Instruction YouTube Link (if applicable) : " + recipeYoutube)
+        var recipeYoutubeLink = $("<a>").text("Instruction YouTube Link (if applicable) : " + recipeYoutube)
+        // var recipeYoutubeLink = $("<a>").attr("href", recipeYoutube)
+        $("<a>").attr("href")
 
 
         //Adding the API items to div on page
@@ -48,7 +47,6 @@ function displayRandomMeal() {
 
         $("#meal-view").prepend(recipeNameDiv);
         recipeNameDiv.prepend(image);
-
 
 
         console.log(response.meals[0])
