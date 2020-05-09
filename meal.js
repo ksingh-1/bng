@@ -40,7 +40,21 @@ function displayRandomMeal() {
         var recipeIngredient2 = response.meals[0].strIngredient2
         var recipeMeasure2 = response.meals[0].strMeasure2
 
+        // var ingredientsArray = ""
+        // var ingredientsMeasureArray = ""
 
+
+        //For loop for pulling Ingredients
+
+
+
+
+
+
+
+        var pullingIngredients = response.meals[0]
+
+        console.log(pullingIngredients)
 
         var recipeYoutube = response.meals[0].strYoutube
         var recipeInstructions = response.meals[0].strInstructions
@@ -56,11 +70,11 @@ function displayRandomMeal() {
         var instructionsDiv = $("<ul>").text("").addClass("collapsible")
         var recipeInstructionList = $("<li>").text("")
         var recipeInstructionHeader = $("<div>").text("Instructions : ").addClass("collapsible-header card red lighten-3")
-        var recipeInstructionText = $("<div>").text("Instructions : " + recipeInstructions).addClass("collapsible-body")
+        var recipeInstructionText = $("<div>").text(recipeInstructions).addClass("collapsible-body")
 
         // YouTube Link
         var youTubeLinkDiv = $("<div>").text("")
-        var recipeYoutubeLink = $("<a>").text("Click/Tap to Open YouTube").attr("href", recipeYoutube).attr("target", '_blank')
+        var recipeYoutubeLink = $("<a>").text("Click/Tap to Open YouTube").attr("href", recipeYoutube).attr("target", '_blank').addClass("wave-effect waves-light btn")
 
         //Embed Version
         // var youTubeWindow = $("<iframe>").attr("src", recipeYoutube.replace("watch?v=", "embed/"))
@@ -104,8 +118,6 @@ function displayRandomMeal() {
 
 
 
-
-        console.log(document.querySelectorAll("collapsible"))
         console.log(response.meals[0])
         //Collapsible Init
         $('.collapsible').collapsible();
