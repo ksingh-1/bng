@@ -48,7 +48,7 @@ function displayRandomBeverage() {
       "src",
       drinkImage
     );
-    var recipeIngredientText = $("<p>").text(
+    var recipeIngredientText = $("<li>").text(
       "Ingredients : " +
         drinkIngredient1 +
         " : " +
@@ -58,7 +58,7 @@ function displayRandomBeverage() {
         " : " +
         drinkMeasure2
     );
-    var recipeInstructionText = $("<p>").text(
+    var recipeInstructionText = $("<li>").text(
       "Instructions : " + recipeInstructions
     );
 
