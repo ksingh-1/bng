@@ -33,17 +33,19 @@ API's to be used
 
 Tasks
 
-- Decide we are all in agreement on direction
+    KP
+        - Set up html layout
+        - Set up event listeners for buttons
+        - Add js logic
 
--Framework
-    - Website layout (wireframe)
-    - Basic HTML Structure
-        - Add CDN links
-        - Set up where everything will visually go
+    Eric
+        - Set up js file
+    - Set up second API
+    - Set up Ajax for second API
 
--JS
-     - Set up event listener for buttons
-     - Set up API's and AJAX
-     - Set up div change once responses are pulled with AJAX
-
--
+    Bobby
+    - Add CDN links for Materialize and Jquery  
+    - Set up CSS style
+    - Set up first API
+    - Set up AJAX for first API
+    - Set up printing of AJAX results to page
