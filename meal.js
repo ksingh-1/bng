@@ -69,7 +69,7 @@ function displayRandomMeal() {
         //Materialize Dropdown text test variables
         var instructionsDiv = $("<ul>").text("").addClass("collapsible")
         var recipeInstructionList = $("<li>").text("")
-        var recipeInstructionHeader = $("<div>").text("Instructions : ").addClass("collapsible-header card red lighten-3")
+        var recipeInstructionHeader = $("<div>").text("Instructions (Click/Tap to Expand): ").addClass("collapsible-header card red lighten-3")
         var recipeInstructionText = $("<div>").text(recipeInstructions).addClass("collapsible-body")
 
         // YouTube Link
