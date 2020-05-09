@@ -90,7 +90,6 @@ function displayRandomBeverage() {
 
     $("#beverage-view").prepend(instructionsDiv);
     $("#beverage-view").prepend(drinkNameDiv);
-    // drinkNameDiv.prepend(image);
 
     //console.log(response.drinks[0])
 
