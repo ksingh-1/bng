@@ -57,7 +57,7 @@ function displayRandomBeverage() {
     var recipeIngredientBody = $("<div>").addClass("collapsible-body");
     var recipeIngredientHeader = $("<div>")
       .text("Ingredients (Click/Tap to Expand): ")
-      .addClass("collapsible-header card red lighten-3");
+      .addClass("collapsible-header card blue lighten-3");
 
     ingredientArray.forEach((ingredient, index) => {
       var ingredientName = ingredient[1];
@@ -89,7 +89,7 @@ function displayRandomBeverage() {
     var recipeInstructionList = $("<li>").text("");
     var recipeInstructionHeader = $("<div>")
       .text("Instructions : ")
-      .addClass("collapsible-header card red lighten-3");
+      .addClass("collapsible-header card blue lighten-3");
     var recipeInstructionText = $("<div>")
       .text(recipeInstructions)
       .addClass("collapsible-body");
