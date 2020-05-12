@@ -10,6 +10,10 @@ $(document).ready(function () {
     $('.carousel').carousel();
 });
 
+$(document).ready(function () {
+    $('.parallax').parallax();
+});
+
 //Initializing Materialize Collapsible
 function displayRandomMeal() {
 
