@@ -15,7 +15,7 @@ function displayRandomMeal() {
 
 
 
-    // $("#meal-view").html("")
+    $("#meal-view").html("")
 
     var queryURL = "https://www.themealdb.com/api/json/v1/1/random.php";
 
