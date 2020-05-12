@@ -28,58 +28,80 @@ function displayRandomBeverage() {
     var drinkName = response.drinks[0].strDrink;
     var drinkImage = response.drinks[0].strDrinkThumb;
 
-    //Ingredients Display???????
-    var recipeIngredientsDiv = $("<ul>").text("Ingredients : ");
+    var dataObject = {};
+    var ingredientArray = [];
+    var measurementArray = [];
 
-    var drinkIngredient1 = response.drinks[0].strIngredient1;
-    var drinkMeasure1 = response.drinks[0].strMeasure1;
-    var drinkIngredient2 = response.drinks[0].strIngredient2;
-    var drinkMeasure2 = response.drinks[0].strMeasure2;
+    // For loop for pulling Ingredients removing all empty/null values
+    for (var data in response.drinks[0]) {
+      if (response.drinks[0][data]) {
+        dataObject[data] = response.drinks[0][data];
+      }
+    }
 
-    var drinkIngredient1 = response.drinks[0].strIngredient1;
-    var drinkMeasure1 = response.drinks[0].strMeasure1;
+    ingredientArray = Object.entries(dataObject).filter((data) => {
+      return data[0].startsWith("strIngredient");
+    });
+
+    //console.dir(ingredientArray);
+    measurementArray = Object.entries(dataObject).filter((data) => {
+      return data[0].startsWith("strMeasure");
+    });
+
+    //var dataArray = ingredientArray.concat(measurementArray);
+
+    //console.dir(measurementArray);
+
+    var recipeIngredientsDiv = $("<ul>").addClass("collapsible");
+    var recipeIngredientList = $("<li>");
+    var recipeIngredientBody = $("<div>").addClass("collapsible-body");
+    var recipeIngredientHeader = $("<div>")
+      .text("Ingredients (Click/Tap to Expand): ")
+      .addClass("collapsible-header card red lighten-3");
+
+    ingredientArray.forEach((ingredient, index) => {
+      var ingredientName = ingredient[1];
+      var measurement = measurementArray[index][1];
+      var recipeIngredientText = $("<li>").text(
+        ingredientName + " : " + measurement
+      );
+      recipeIngredientBody.append(recipeIngredientText);
+    });
+
+    recipeIngredientsDiv.append(recipeIngredientList);
+    recipeIngredientList.append(recipeIngredientHeader);
+    recipeIngredientList.append(recipeIngredientBody);
+
+    // var recipeIngredientBody = $("<div>").text("").addClass("collapsible-body");
 
     var recipeInstructions = response.drinks[0].strInstructions;
 
-    // $("img").addClass("imageSize");
+    $("img").addClass("imageSize");
     //Generating text for display
     var recipeNameText = $("<h5>").text(drinkName);
-    var recipeImageDisplay = $('<img class="imageSize">').attr(
+    var recipeImageDisplay = $('<img class="imageSize materialboxed">').attr(
       "src",
       drinkImage
     );
-    var recipeIngredientText = $("<li>").text(
-      "Ingredients : " +
-        drinkIngredient1 +
-        " : " +
-        drinkMeasure1 +
-        " : " +
-        drinkIngredient2 +
-        " : " +
-        drinkMeasure2
-    );
-    // var recipeInstructionText = $("<li>").text(
-    //   "Instructions : " + recipeInstructions
-    // );
 
     //Materialize Dropdown text test variables
     var instructionsDiv = $("<ul>").text("").addClass("collapsible");
     var recipeInstructionList = $("<li>").text("");
     var recipeInstructionHeader = $("<div>")
       .text("Instructions : ")
-      .addClass("collapsible-header card blue lighten-3");
+      .addClass("collapsible-header card red lighten-3");
     var recipeInstructionText = $("<div>")
-      .text("Instructions : " + recipeInstructions)
+      .text(recipeInstructions)
       .addClass("collapsible-body");
 
     //Adding the API items to div on page
     drinkNameDiv.append(recipeNameText);
     drinkNameDiv.append(recipeImageDisplay);
-    drinkNameDiv.append(recipeIngredientText);
+    // drinkNameDiv.append(recipeIngredientText);
     // drinkNameDiv.append;(recipeInstructionText)
 
     //Adds li to ul Ingredients list
-    recipeIngredientsDiv.append(recipeIngredientText);
+    // recipeIngredientsDiv.append(recipeIngredientText);
 
     //Adds li to ul instructions
     instructionsDiv.append(recipeInstructionList);
@@ -89,6 +111,7 @@ function displayRandomBeverage() {
     recipeInstructionList.append(recipeInstructionText);
 
     $("#beverage-view").prepend(instructionsDiv);
+    $("#beverage-view").prepend(recipeIngredientsDiv);
     $("#beverage-view").prepend(drinkNameDiv);
 
     //console.log(response.drinks[0])
@@ -97,6 +120,7 @@ function displayRandomBeverage() {
     // console.log(response.meals[0]);
     // //Collapsible Init
     $(".collapsible").collapsible();
+    $(".materialboxed").materialbox();
   });
 }
 
