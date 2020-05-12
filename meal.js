@@ -1,61 +1,65 @@
 // JS for Displaying Random Meal
 
 //Modal Init
-// $(document).ready(function () {
-//     $('.modal').modal();
-// });
+$(document).ready(function () {
+    $('.modal').modal();
+    $('.modal').modal("open");
+});
+
+$(document).ready(function () {
+    $('.carousel').carousel();
+});
+
 //Initializing Materialize Collapsible
 function displayRandomMeal() {
 
 
 
-    $("#meal-view").html("")
+    // $("#meal-view").html("")
 
     var queryURL = "https://www.themealdb.com/api/json/v1/1/random.php";
 
 
-    //  //Non Alcoholic Drink Function
+    // //Non Alcoholic Drink Function
 
-    //     //var adult = true;
-    //     var adult = false;
+    // //var adult = true;
+    // var adult = false;
 
-    //     //selected yes on modal to being adult
-    //     if (adult) {
-    //         var drinkURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic";
-    //     } else {
-    //         var drinkURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic";
-    //     }
+    // //selected yes on modal to being adult
+    // if (adult) {
+    //     var drinkURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic";
+    // } else {
+    //     var drinkURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic";
+    // }
 
-    //     //DRINKS
+    // //DRINKS
+    // $.ajax({
+    //     url: drinkURL,
+    //     method: "GET"
+    // }).then(function (response) {
+    //     var nonAlcoholDrinkArray = response.drinks;
+    //     var randomDrinkId = nonAlcoholDrinkArray[Math.floor(Math.random() * nonAlcoholDrinkArray.length)];
+    //     var randomDrinkArray = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + randomDrinkId["idDrink"];
+
+
     //     $.ajax({
-    //         url: drinkURL,
+    //         url: randomDrinkArray,
     //         method: "GET"
+
+
     //     }).then(function (response) {
-    //         var nonAlcoholDrinkArray = response.drinks;
-    //         var randomDrinkId = nonAlcoholDrinkArray[Math.floor(Math.random() * nonAlcoholDrinkArray.length)];
-    //         var randomDrinkArray = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + randomDrinkId["idDrink"];
+
+    //         var nonAlcoholicDrink = response.drinks
 
 
-    //         $.ajax({
-    //             url: randomDrinkArray,
-    //             method: "GET"
-
-
-    //         }).then(function (response) {
-
-    //             var nonAlcoholicDrink = response.drinks
-
-
-    //             console.log(nonAlcoholicDrink);
-    //         });
-
-
-    //         //Copy current alcoholic drink display here
-
-
-
-
+    //         console.log(nonAlcoholicDrink);
     //     });
+
+
+    //     //Copy current alcoholic drink display here
+
+
+    // });
 
 
 
@@ -127,7 +131,7 @@ function displayRandomMeal() {
         $("img").addClass("imageSize")
         //Generating text for display
         var recipeNameText = $("<h5>").text(recipeName);
-        var recipeImageDisplay = $('<img class="imageSize">').attr("src", recipeImage);
+        var recipeImageDisplay = $('<img class="imageSize materialboxed">').attr("src", recipeImage)
 
 
 
@@ -144,11 +148,6 @@ function displayRandomMeal() {
 
         //Embed Version
         // var youTubeWindow = $("<iframe>").attr("src", recipeYoutube.replace("watch?v=", "embed/"))
-
-
-
-
-
 
 
         //Adding the API items to div on page
@@ -188,10 +187,14 @@ function displayRandomMeal() {
 
 
 
+
+
         // console.log(response.meals[0])
         //Collapsible Init
         $('.collapsible').collapsible();
 
+
+        $('.materialboxed').materialbox();
 
 
     });
