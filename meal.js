@@ -7,13 +7,58 @@
 //Initializing Materialize Collapsible
 function displayRandomMeal() {
 
-    // $(document).ready(function () {
-    //     $('.collapsible').collapsible();
-    // });
+
 
     $("#meal-view").html("")
 
     var queryURL = "https://www.themealdb.com/api/json/v1/1/random.php";
+
+
+    //  //Non Alcoholic Drink Function
+
+    //     //var adult = true;
+    //     var adult = false;
+
+    //     //selected yes on modal to being adult
+    //     if (adult) {
+    //         var drinkURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic";
+    //     } else {
+    //         var drinkURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic";
+    //     }
+
+    //     //DRINKS
+    //     $.ajax({
+    //         url: drinkURL,
+    //         method: "GET"
+    //     }).then(function (response) {
+    //         var nonAlcoholDrinkArray = response.drinks;
+    //         var randomDrinkId = nonAlcoholDrinkArray[Math.floor(Math.random() * nonAlcoholDrinkArray.length)];
+    //         var randomDrinkArray = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + randomDrinkId["idDrink"];
+
+
+    //         $.ajax({
+    //             url: randomDrinkArray,
+    //             method: "GET"
+
+
+    //         }).then(function (response) {
+
+    //             var nonAlcoholicDrink = response.drinks
+
+
+    //             console.log(nonAlcoholicDrink);
+    //         });
+
+
+    //         //Copy current alcoholic drink display here
+
+
+
+
+    //     });
+
+
+
 
     // Creates AJAX call for the specific movie button being clicked
     $.ajax({
@@ -31,30 +76,50 @@ function displayRandomMeal() {
         var recipeImage = response.meals[0].strMealThumb
 
 
+        var dataObject = {};
+        var ingredientArray = [];
+        var measurementArray = [];
 
-        //Ingredients Display???????
-        var recipeIngredientsDiv = $("<ul>").text("Ingredients : ")
+        // For loop for pulling Ingredients removing all empty/null values
+        for (var data in response.meals[0]) {
+            if (response.meals[0][data]) {
+                dataObject[data] = response.meals[0][data];
+            }
+        }
 
-        var recipeIngredient1 = response.meals[0].strIngredient1
-        var recipeMeasure1 = response.meals[0].strMeasure1
-        var recipeIngredient2 = response.meals[0].strIngredient2
-        var recipeMeasure2 = response.meals[0].strMeasure2
+        ingredientArray = Object.entries(dataObject).filter(data => {
+            return data[0].startsWith("strIngredient");
+        });
 
-        // var ingredientsArray = ""
-        // var ingredientsMeasureArray = ""
+        //console.dir(ingredientArray);
+        measurementArray = Object.entries(dataObject).filter(data => {
+            return data[0].startsWith("strMeasure");
+        });
+
+        //var dataArray = ingredientArray.concat(measurementArray);
+
+        //console.dir(measurementArray);
+
+        var recipeIngredientsDiv = $("<ul>").addClass("collapsible")
+        var recipeIngredientList = $("<li>")
+        var recipeIngredientBody = $("<div>").addClass("collapsible-body");
+        var recipeIngredientHeader = $("<div>").text("Ingredients (Click/Tap to Expand): ").addClass("collapsible-header card red lighten-3")
+
+        ingredientArray.forEach((ingredient, index) => {
+            var ingredientName = ingredient[1];
+            var measurement = measurementArray[index][1];
+            var recipeIngredientText = $("<li>").text(ingredientName + " : " + measurement);
+            recipeIngredientBody.append(recipeIngredientText);
+        });
 
 
-        //For loop for pulling Ingredients
+        recipeIngredientsDiv.append(recipeIngredientList);
+        recipeIngredientList.append(recipeIngredientHeader);
+        recipeIngredientList.append(recipeIngredientBody);
 
 
+        // var recipeIngredientBody = $("<div>").text("").addClass("collapsible-body");
 
-
-
-
-
-        var pullingIngredients = response.meals[0]
-
-        console.log(pullingIngredients)
 
         var recipeYoutube = response.meals[0].strYoutube
         var recipeInstructions = response.meals[0].strInstructions
@@ -63,7 +128,8 @@ function displayRandomMeal() {
         //Generating text for display
         var recipeNameText = $("<h5>").text(recipeName);
         var recipeImageDisplay = $('<img class="imageSize">').attr("src", recipeImage);
-        var recipeIngredientText = $("<li>").text(recipeIngredient1 + " : " + recipeMeasure1 + ", " + recipeIngredient2 + " : " + recipeMeasure2)
+
+
 
 
         //Materialize Dropdown text test variables
@@ -97,7 +163,7 @@ function displayRandomMeal() {
         // youTubeLinkDiv.append(youTubeWindow)
 
         //Adds li to ul Ingredients list
-        recipeIngredientsDiv.append(recipeIngredientText)
+
 
         //Adds li to ul instructions
         instructionsDiv.append(recipeInstructionList);
@@ -106,9 +172,13 @@ function displayRandomMeal() {
         //Adds collapsible body to li element
         recipeInstructionList.append(recipeInstructionText);
 
+        //Adds li to ul instructions
 
 
-        console.log(recipeName)
+
+
+
+        // console.log(recipeName)
 
 
         $("#meal-view").prepend(instructionsDiv)
@@ -118,7 +188,7 @@ function displayRandomMeal() {
 
 
 
-        console.log(response.meals[0])
+        // console.log(response.meals[0])
         //Collapsible Init
         $('.collapsible').collapsible();
 
