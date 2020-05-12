@@ -5,62 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bubs and Grubs</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
 </head>
 
 
 
 <body>
- Modal Trigger -->
- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+ 
 
  <!-- Modal Structure -->
- <div id="modal1" class="modal">
-   <div class="modal-content">
-     <h4>Welcome to Bubs and Grubs</h4>
-     <p>We Must Verify Your Age to Continue</p>
-   </div>
-   <div class="modal-footer">
-     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-   </div>
-   <button data-target="modal1" class="btn modal-trigger">Modal</button>
-          
+ <div id="modal" class="modal fade" data-backdrop="static">
+   <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+                <h4 class="modal-title center">Are You Above 21?</h4>
+            </div>
+            <div class="modal-body center">
+                <p>By Verifying Your Age We Can Determine Alcoholic Vs. Non-Alcoholic Drink Options</p>
+            </div>
+         <button type="submit" class="btn btn-primary left" data="true" id="above">I'm Above 21</button>
+         <button type="submit" class="btn btn-primary right" data="false" id="below">I'm Under 21</button>
+        </div>
+    </div>     
  </div>
 
 
-  <nav>
-    <!-- <div class="nav-wrapper">
+  <!-- <nav>
+     <div class="nav-wrapper">
       <a href="" class="brand-logo">AGE IDENTIFIER</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="">Above 21<span class="badge"><i class="material-icons">person</i></span></a></li>
-        <li><a href="">Below 21 <span class="badge"><i class="material-icons">child_friendly</i></span></a></li> -->
-        <!-- Mobile User
+        <li><a href="">Below 21 <span class="badge"><i class="material-icons">child_friendly</i></span></a></li>
+         Mobile User
         <div id="mobileNav">
             <div id="namePic">
                 <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Drop Me!</a>
                 <-- Dropdown Structure -->
                  <!-- <ul id='dropdown1' class='dropdown-content'>
                     <li><a href="#!">one</a></li>
-                    <li><a href="#!">two</a></li>
+                    <li><a href="#!">two</a></li>s
                     <li class="divider" tabindex="-1"></li>
                     <li><a href="#!">three</a></li>
                     <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
                     <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
                 </ul>
             </div>
-        </div> -->
-      </nav>
+        </div>
+      </nav> -->
       
     <!-- Header -->
-    <div class="jumbotron jumbotron-fluid">
+    <!-- <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h3 style="text-align: center;">Bubs and Grubs</h3>
             <h5 class="display-4" style="text-align: center;"> Tired of the same old meals and drinks during quarantine?
                 Try our our random meal and drink recipe generator to mix it up!
-            </h5>
+            </h5> -->
+            <div class="parallax-container">
+                <div class="parallax"><img src="background1.jpg"></div>
+                <h1 class="white-text header"style="text-align: center"><br><br>Bubs & Grubs</h1>
+              </div>
+              <div class="section white">
+                <div class="row container">
+                  <!-- <h2 class="header"style="text-align: center">Bubs & Grubs</h2> -->
+                  <!-- <p class="grey-text text-darken-3 lighten-3" style="text-align: center;">Tired of the same old meals and drinks during quarantine?
+                    Try our our random meal and drink recipe generator to mix it up!</p> -->
+                </div>
+              </div>
+              <div class="parallax-container">
+                <h3 class="white-text text-white lighten-3" style="text-align: center;"><br><br> Tired of the same old meals and drinks during quarantine?
+                    Try our our random meal and drink recipe generator to mix it up!</h3>
+                <div class="parallax"><img src="background2.jpg"></div>
+              </div>
+        
         </div>
     </div>
 
@@ -69,8 +89,8 @@
     <div class="container" style="text-align: center;">
         <h5>Click one of the buttons below to generate a random meal or drink recipe!</h5>
 
-        <button type="button" class="waves-effect waves-light btn-large" id="meal-bttn">Meals<i class="material-icons">local_dining</i></button>
-        <button type="button" class="waves-effect waves-light btn-large" id="beverage-bttn">Drinks<i class="material-icons">local_bar</i></button>
+        <button type="button" class="waves-effect waves-light btn-large pulse" id="meal-bttn">Meals<i class="material-icons">local_dining</i></button>
+        <button type="button" class="waves-effect waves-light btn-large pulse" id="beverage-bttn">Drinks<i class="material-icons">local_bar</i></button>
 
     </div>
     <br>
@@ -101,7 +121,7 @@
     <script src="meal.js"></script>
     <script src="beverage.js"></script>
     <script src="logic.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="style.css">
 
 </body>
 
