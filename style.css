@@ -11,3 +11,11 @@ li {
 
    list-style: circle; 
 }
+
+h1 {
+    font-weight: bolder;
+    color: white;
+    font-size: 100px;
+    text-shadow: -5px -5px 0 #000;
+    ;
+}

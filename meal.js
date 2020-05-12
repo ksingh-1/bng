@@ -10,6 +10,24 @@ $(document).ready(function () {
     $('.carousel').carousel();
 });
 
+$(document).ready(function () {
+    $('.parallax').parallax();
+});
+
+$(document).ready(function () {
+
+    $("#above").on("click", function (e) {
+        adult = true;
+        $('.modal').modal("close");
+    });
+
+    $("#below").on("click", function (e) {
+        adult = false;
+        $('.modal').modal("close");
+
+    });
+
+});
 //Initializing Materialize Collapsible
 function displayRandomMeal() {
 
